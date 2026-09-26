@@ -1,0 +1,323 @@
+-- LIMXX SCRIPT
+
+local Settings = {
+    WalkSpeed = 16,
+    JumpPower = 50,
+}
+
+local Features = {
+    AutoRevive = false,
+    AutoRespawn = false,
+    InfiniteJump = false,
+    Fly = false,
+    NoClip = false,
+    PlayerESP = false,
+    BotESP = false,
+    ItemESP = false,
+    Fullbright = false,
+    NoFog = false,
+    AntiAFK = false,
+}
+
+local Movement = {
+    WalkSpeed = Settings.WalkSpeed,
+    JumpPower = Settings.JumpPower,
+}
+
+print("Limxx SCRIPT loaded")
+print("Movement loaded")
+local Visuals = {
+    Fullbright = false,
+    NoFog = false,
+    PlayerESP = false,
+    BotESP = false,
+    ItemESP = false,
+}
+
+print("Visuals loaded")
+local Teleports = {
+    SafeZone = false,
+    Player = false,
+}
+
+print("Teleports loaded")
+local UI = {
+    Enabled = true,
+    Title = "LIMXX SCRIPT",
+}
+
+print("UI loaded")
+print("Title:", UI.Title)
+local Limxx = {
+    Name = "LIMXX SCRIPT",
+    Version = "0.1",
+    Loaded = true,
+}
+
+print("Project:", Limxx.Name)
+print("Version:", Limxx.Version)
+print("Status: OK")
+local FeatureNames = {
+    "AutoRevive",
+    "AutoRespawn",
+    "InfiniteJump",
+    "Fly",
+    "NoClip",
+    "PlayerESP",
+    "BotESP",
+    "ItemESP",
+    "Fullbright",
+    "NoFog",
+    "AntiAFK",
+}
+
+print("Feature list:")
+for _, name in ipairs(FeatureNames) do
+    print("-", name)
+end
+local FeatureNames = {
+    "AutoRevive",
+    "AutoRespawn",
+    "InfiniteJump",
+    "Fly",
+    "NoClip",
+    "PlayerESP",
+    "BotESP",
+    "ItemESP",
+    "Fullbright",
+    "NoFog",
+    "AntiAFK",
+}
+
+print("Feature list:")
+for _, name in ipairs(FeatureNames) do
+    print("-", name)
+end
+local TeleportNames = {
+    "SafeZone",
+    "Player",
+}
+
+print("Teleport list:")
+for _, name in ipairs(TeleportNames) do
+    print("-", name)
+end
+local Status = {
+    Ready = true,
+    Errors = 0,
+}
+
+print("========== LIMXX ==========")
+print("Ready:", Status.Ready)
+print("Errors:", Status.Errors)
+print("===========================")
+local Modules = {
+    Settings = Settings,
+    Features = Features,
+    Movement = Movement,
+    Visuals = Visuals,
+    Teleports = Teleports,
+    UI = UI,
+}
+
+print("All modules connected")
+local function showStatus()
+    print("LIMXX SCRIPT is ready")
+    print("Version:", Limxx.Version)
+    print("Modules connected:", Modules ~= nil)
+end
+
+showStatus()
+local function toggleFeature(name: string, enabled: boolean)
+    if Features[name] ~= nil then
+        Features[name] = enabled
+        print(name, "=", enabled)
+    end
+end
+
+toggleFeature("AutoRevive", false)
+toggleFeature("AutoRespawn", false)
+local Menu = {
+    Open = false,
+    Title = UI.Title,
+}
+function Menu:Toggle()
+    if self.Open == true then
+        self.Open = false
+    else
+        self.Open = true
+    end
+
+    print("Menu:", self.Open)
+    function Menu:Toggle()
+    if self.Open == true then
+        self.Open = false
+    else
+        self.Open = true
+    end
+
+    print("Menu:", self.Open)
+    end    end
+    local function printSettings()
+    print("=== LIMXX SETTINGS ===")
+    print("WalkSpeed:", Settings.WalkSpeed)
+    print("JumpPower:", Settings.JumpPower)
+    print("Menu:", Menu.Open)
+end
+
+printSettings()
+    local function setWalkSpeed(value: number)
+    if value > 0 then
+        Settings.WalkSpeed = value
+        Movement.WalkSpeed = value
+        print("WalkSpeed set to:", value)
+    end
+end
+
+setWalkSpeed(16)
+    local function setJumpPower(value: number)
+    if value > 0 then
+        Settings.JumpPower = value
+        Movement.JumpPower = value
+        print("JumpPower set to:", value)
+    end
+end
+
+setJumpPower(50)
+    local MenuState = {
+    CurrentPage = "Main",
+}
+
+local function openPage(page: string)
+    MenuState.CurrentPage = page
+    print("Opened page:", page)
+end
+
+openPage("Main")
+    local Pages = {
+    "Main",
+    "Movement",
+    "Visuals",
+    "Teleports",
+    "Features",
+}
+
+local function listPages()
+    print("=== LIMXX PAGES ===")
+
+    for _, page in ipairs(Pages) do
+        print("[PAGE]", page)
+    end
+end
+
+listPages()
+    local Pages = {
+    "Main",
+    "Movement",
+    "Visuals",
+    "Teleports",
+    "Features",
+}
+
+local function listPages()
+    print("=== LIMXX PAGES ===")
+
+    for _, page in ipairs(Pages) do
+        print("[PAGE]", page)
+    end
+end
+
+listPages()
+    local MenuActions = {
+    Movement = {
+        "WalkSpeed",
+        "JumpPower",
+        "InfiniteJump",
+        "Fly",
+    },
+
+    Visuals = {
+        "PlayerESP",
+        "BotESP",
+        "ItemESP",
+        "Fullbright",
+        "NoFog",
+    },
+
+    Teleports = {
+        "SafeZone",
+        "Player",
+    },
+}
+
+local function showCategory(name: string, items: {string})
+    print("=== " .. name .. " ===")
+
+    for _, item in ipairs(items) do
+        print("[ ] " .. item)
+    end
+end
+
+showCategory("Movement", MenuActions.Movement)
+showCategory("Visuals", MenuActions.Visuals)
+showCategory("Teleports", MenuActions.Teleports)
+    local function toggle(name: string, state: boolean)
+    if state == true then
+        print("[ON] " .. name)
+    else
+        print("[OFF] " .. name)
+    end
+end
+
+toggle("WalkSpeed", true)
+toggle("JumpPower", true)
+toggle("InfiniteJump", false)
+toggle("Fly", false)
+
+toggle("PlayerESP", false)
+toggle("BotESP", false)
+toggle("ItemESP", false)
+toggle("Fullbright", false)
+toggle("NoFog", false)
+    local SettingsMenu = {
+    WalkSpeed = 16,
+    JumpPower = 50,
+    InfiniteJump = false,
+    Fly = false,
+}
+
+local function setSetting(name: string, value: number)
+    if name == "WalkSpeed" then
+        SettingsMenu.WalkSpeed = value
+    elseif name == "JumpPower" then
+        SettingsMenu.JumpPower = value
+    end
+
+    print("[SETTING]", name, "=", value)
+end
+
+setSetting("WalkSpeed", 16)
+setSetting("JumpPower", 50)
+
+print("Settings menu loaded")
+    local function openMainMenu()
+    print("")
+    print("╔════════════════════╗")
+    print("║     LIMXX SCRIPT   ║")
+    print("╠════════════════════╣")
+    print("║ 1. Movement        ║")
+    print("║ 2. Visuals         ║")
+    print("║ 3. Teleports       ║")
+    print("║ 4. Features        ║")
+    print("╚════════════════════╝")
+end
+
+openMainMenu()
+    local function selectMenu(number: number)
+    if number == 1 then
+        print("Movement selected")
+    elseif number == 2 then
+        print("Visuals selected")
+    elseif number == 3 then
+        end            end
+        
